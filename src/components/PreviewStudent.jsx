@@ -27,9 +27,8 @@ function PreviewStudent() {
         const response = await makeRequest.get(`/students/${studentId}`);
 
         const { id, name, nin, image, state, regNo, program, Certification } =
-          response.data.data;
-
-        alert(JSON.stringify(response.data.data));
+          response?.data?.data ??{};
+ 
         setUserDetails((user) => {
           return {
             ...user,
